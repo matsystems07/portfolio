@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "AI Chatbot System",
+    "description": "A full-stack chatbot built with Node.js, Express, and OpenAI API.",
+    "thumbnail": "/assets/project1.png",
+    "tech": ["AI", "Streamlit", "Python"],
+    "live": "https://business-llm-tool.onrender.com/",
+    "repo": "https://github.com/matsystems07/BusinessMLTool"
+  },
+  {
+    "id": 2,
+    "title": "Interactive Dashboard",
+    "description": "Modern, animated dashboard built with D3.js.",
+    "thumbnail": "/assets/project3.png",
+    "tech": ["D3", "Javascript"],
+    "live": "https://d3-dashboard.onrender.com",
+    "repo": "https://github.com/matsystems07/d3-dashboard"
+  },
+  {
+    "id": 3,
+    "title": "SaaS Analytics Dashboard",
+    "description": "An analytics dashboard with charts, auth, and role management.",
+    "thumbnail": "/assets/project2.png",
+    "tech": ["SaaS", "Dashboard","Javascript"],
+    "live": "https://vendorvault-8cbi.onrender.com",
+    "repo": "https://github.com/matsystems07/VendorVault"
+  },
+  {
+    "id": 4,
+    "title": "Movie Recommendation",
+    "description": "Personalized movie suggestion system using ML models.",
+    "thumbnail": "/assets/project4.png",
+    "tech": ["Python", "ML", "Streamlit"],
+    "live": "https://movie-recommendation-system-ul6f.onrender.com",
+    "repo": "https://github.com/matsystems07/movie-recommendation-system"
+  }
+]
