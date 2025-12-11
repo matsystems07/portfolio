@@ -12,13 +12,12 @@ const db = require('./db');
 const rateLimiter = require('./middleware/rateLimiter');
 const errorHandler = require('./middleware/errorHandler');
 
-// ✅ IMPORT ROUTES FIRST
+// ✅ IMPORT ROUTES
 const aiRoutes = require('./routes/ai');
 const projectRoutes = require('./routes/projects');
 const contactRoutes = require('./routes/contact');
 const warmupRoutes = require('./routes/warmup');
 
-// Log routes
 console.log("✅ Routes loaded:", { ai: true, projects: true, contact: true, warmup: true });
 
 const app = express();
@@ -35,28 +34,38 @@ app.use('/projects', projectRoutes);
 app.use('/contact', contactRoutes);
 app.use('/warmup', warmupRoutes);
 
-// Production frontend
-if (process.env.NODE_ENV === 'production' || process.env.SERVE_FRONTEND) {
-  app.use(express.static(path.join(__dirname, '../client/dist')));
-  app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')));
+// =============================================
+// 🚀 PRODUCTION: SERVE CLIENT BUILD FROM /dist
+// =============================================
+if (process.env.NODE_ENV === 'production') {
+  const clientDistPath = path.join(__dirname, '../client/dist');
+  console.log("📦 Serving React build from:", clientDistPath);
+
+  app.use(express.static(clientDistPath));
+
+  // Send index.html for all non-API routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
 }
 
+// Health check route for local development
 app.get("/", (req, res) => res.json({ message: "Server is running..." }));
 
 // Error Handler
 app.use(errorHandler);
 
-// 🔥 COLD START WARMUP - RUNS ON SERVER START
+// 🔥 COLD START WARMUP
 const warmupServer = async () => {
   try {
     const { warmupProjects } = require('./controllers/warmupController');
     console.log("🔥 Starting cold start warmup...");
-    
+
     await warmupProjects(
-      {}, 
-      { 
-        json: (data) => console.log("✅ COLD START COMPLETE:", data.warmed || "all endpoints") 
-      }, 
+      {},
+      {
+        json: (data) => console.log("✅ COLD START COMPLETE:", data.warmed || "all endpoints")
+      },
       () => {}
     );
   } catch (err) {
@@ -64,10 +73,8 @@ const warmupServer = async () => {
   }
 };
 
-// Start Server + IMMEDIATE WARMUP
+// Start Server + warmup
 app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  
-  // 🔥 WARMUP RUNS 2 SECONDS AFTER START
   setTimeout(warmupServer, 2000);
 });
