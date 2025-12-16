@@ -5,7 +5,7 @@ const About = () => {
 
       <p className="text-lg leading-relaxed text-gray-700">
         I am a software engineer passionate about modern web development,
-        automation, and building scalable solutions. My focus is on creating
+        automation, and building scalable AI powered solutions. My focus is on creating
         clean UI/UX, optimized backend services, and seamless user experiences.
       </p>
 
