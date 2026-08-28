@@ -1,15 +1,23 @@
-[
-  {
+[   {
     "id": 1,
+    "title": "FullStack Ecommerce Store along with backend",
+    "description": "A Fullstack Shopify Store build to last along with a backend dashboard to add products and track all sorts of orders built with React, Vite, Tailwind ,Node.js using Make.com Whatsapp and Medusa.js backend Apis connecting to Medusa in the backend.",
+    "thumbnail": "https://pub-f1b005fa8b8d40d390923f38752ae035.r2.dev/Screenshot%20(706).png",
+    "tech": ["React", "Medusa.js", "JavaScript"],
+    "live": "https://happyhangs-fullstack.onrender.com/",
+    "repo": "https://github.com/happy-pixel88/happyhangs-fullstack"
+  },
+  {
+    "id": 2,
     "title": "AI Chatbot System",
-    "description": "A full-stack chatbot built with Node.js, Express, and OpenAI API.",
+    "description": "A chatbot built with Python, and OpenAI API.",
     "thumbnail": "/assets/project1.png",
     "tech": ["AI", "Streamlit", "Python"],
     "live": "https://business-llm-tool.onrender.com/",
     "repo": "https://github.com/matsystems07/BusinessMLTool"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Interactive Dashboard",
     "description": "Modern, animated dashboard built with D3.js.",
     "thumbnail": "/assets/project3.png",
@@ -18,7 +26,7 @@
     "repo": "https://github.com/matsystems07/d3-dashboard"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "SaaS Analytics Dashboard",
     "description": "An analytics dashboard with charts, auth, and role management.",
     "thumbnail": "/assets/project2.png",
@@ -27,7 +35,7 @@
     "repo": "https://github.com/matsystems07/VendorVault"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Movie Recommendation",
     "description": "Personalized movie suggestion system using ML models.",
     "thumbnail": "/assets/project4.png",
